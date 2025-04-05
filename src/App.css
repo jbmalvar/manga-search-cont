@@ -1,0 +1,170 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.App {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 100vh;
+  height: auto;
+  width: 1200px;
+  max-width: 1200px;
+  box-sizing: border-box;
+  border-left: 2px solid black; 
+  border-right: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with 70% opacity */
+  padding: 20px;
+  border-radius: 10px; /* Optional: Add rounded corners */
+  z-index: 0;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.9);
+}
+
+.CollectiveInfo {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.infoBox {
+  flex: 1;
+  margin: 0 10px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.mangaSearch {
+  width: 15vw;
+  height: auto;
+  margin: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; 
+  border-right: 1px solid gray;
+  background-color: grey;
+}
+
+.MangaSearchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  background-color: lightgrey;
+  margin: 20px;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+  position: relative; /* Enables absolute positioning for child elements */
+}
+
+.searchInput {
+  height: 25px;
+  width: 300px;
+  border-radius: 25px;
+}
+
+.searchHeader {
+  display: flex; /* Use Flexbox for layout */
+  justify-content: center; /* Center all child elements horizontally */
+  align-items: center; /* Center all child elements vertically */
+  gap: 10px; /* Reduce spacing between child elements */
+  margin-top: 20px; /* Optional: Add spacing above the search header */
+}
+
+.searchButton {
+  height: 30px;
+  border-radius: 25px;
+  margin-left: -10px;
+}
+
+.buttons {
+  position: absolute; /* Allows precise positioning within the container */
+  right: 20px; /* Aligns the buttons to the right edge */
+  top: 10px; /* Adjusts the vertical position */
+  display: flex; /* Ensures proper layout for button elements */
+}
+
+.Categories h1 {
+  margin-bottom: 10px; /* Reduce the space below the h1 */
+}
+
+.Categories input {
+  margin-top: 0; /* Remove any default margin above the input */
+}
+
+tr {
+  background-color: #333;
+  color: #e0e0e0;
+  font-family: Avenir, lucida grande, tahoma, verdana, arial, sans-serif;
+  font-size: 12px;
+  padding: 4px;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 95%;
+  margin: 25px;
+}
+
+th, td {
+  border: 2px solid black;
+  padding: 7px;
+}
+
+.rankHeader {
+  width: 70px;
+}
+
+.titleHeader {
+  width: 450px;
+}
+
+.scoreHeader {
+  width: 90px;
+}
+
+.authorHeader {
+  width: 150px;
+}
+
+.statusHeader {
+  width: 90px;
+}
+
+.MangaContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  width: 90%;
+  height: 40%;
+}
+
+.desc {
+  font-size: 12px;
+  padding: 10px;
+}
