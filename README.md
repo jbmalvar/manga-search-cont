@@ -1,74 +1,66 @@
-# Web Development Project 5 - *Manga Search*
+# Web Development Project 6 - *Name of App Here*
 
-Submitted by: **James Joshua Malvar*
+Submitted by: **James Joshua**
 
-This web app: **Web app that utilizes the Jikan API to make a website search*
+This web app: **Manga Search Continued from last project**
 
-Time spent: **14** hours spent in total
+Time spent: **6** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [X] **The site has a dashboard displaying a list of data fetched using an API call**
-  - The dashboard should display at least 10 unique items, one per row
-  - The dashboard includes at least two features in each row
-- [X] **`useEffect` React hook and `async`/`await` are used**
-- [X] **The app dashboard includes at least three summary statistics about the data** 
-  - The app dashboard includes at least three summary statistics about the data, such as:
-    - Highest Rated Manga out of the 25
-    - Average Manga Scores out of the 25
-    - Total of Completed Manga out of the 25
-- [X] **A search bar allows the user to search for an item in the fetched data**
-  - The search bar **correctly** filters items in the list, only displaying items matching the search query
-  - The list of results dynamically updates as the user types into the search bar
-- [X] **An additional filter allows the user to restrict displayed items by specified categories**
-  - The filter restricts items in the list using a **different attribute** than the search bar 
-  - The filter **correctly** filters items in the list, only displaying items matching the filter attribute in the dashboard
-  - The dashboard list dynamically updates as the user adjusts the filter
+- [X] **Clicking on an item in the list view displays more details about it**
+  - Clicking on an item in the dashboard list navigates to a detail view for that item
+  - Detail view includes extra information about the item not included in the dashboard view
+  - The same sidebar is displayed in detail view as in dashboard view
+  - *To ensure an accurate grade, your sidebar **must** be viewable when showing the details view in your recording.*
+- [X] **Each detail view of an item has a direct, unique URL link to that item’s detail view page**
+  -  *To ensure an accurate grade, the URL/address bar of your web browser **must** be viewable in your recording.*
+- [X] **The app includes at least two unique charts developed using the fetched data that tell an interesting story**
+  - At least two charts should be incorporated into the dashboard view of the site
+  - Each chart should describe a different aspect of the dataset
+
 
 The following **optional** features are implemented:
 
-- [X] Multiple filters can be applied simultaneously
-- [X] Filters use different input types
-  - e.g., as a text input, a dropdown or radio selection, and/or a slider
-- [X] The user can enter specific bounds for filter values
+- [ ] The site’s customized dashboard contains more content that explains what is interesting about the data 
+  - e.g., an additional description, graph annotation, suggestion for which filters to use, or an additional page that explains more about the data
+- [ ] The site allows users to toggle between different data visualizations
+  - User should be able to use some mechanism to toggle between displaying and hiding visualizations 
 
+  
 The following **additional** features are implemented:
 
 * [X] List anything else that you added to improve the site's functionality!
-* [X] Added a prev and next button that would show the next 25 due to Jikan Limited Amount
-* [X] Added a left side that would allow for the user to see the image as well as description and title that links to the manga  
+* [X] I fixed up some bugs from the last project
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-![Untitled design](https://i.imgur.com/CfhNksm.gif)
-
-Additional Link
-https://streamable.com/fa9ihx
+![Untitled design (1)](https://github.com/user-attachments/assets/71d4aee7-bbe9-468e-a8d7-daff8865556b)
 
 
-imgur link in case: https://imgur.com/a/qw1TqZR
-
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
-Video Record to Canva then on Imgur
+
+Screen Record to Canva
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
 [peek](https://github.com/phw/peek) for Linux. -->
 
+Imgur Link in case: https://imgur.com/a/HNa6E4E
+
 ## Notes
 
 Describe any challenges encountered while building the app.
 
-Had some struggle with the prev and next had to use copilot for that one to be honest. I had to use AI for a few things when it came to relating to the API calls. Struggled a bit ngl, but I got it done.
-However, I can say with confidence that I can now use an API correctly. Little bug with the search not sure why the next and prev work, but when it's filtered it doesn't. Nothing too hard to fix, but
-I showed all functionality. Furthermore, since the slider is onchange for the list and filtering, which was on me, it glitches out from the next and prev. The next and prev wasn't intended just an
-extra added feature
+The graph part is impossible to do without AI or outside help. I did struggle a bit with the <Routes> as well, but I got it done. And another skill to the bag.
+
 
 ## License
 
