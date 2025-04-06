@@ -1,0 +1,67 @@
+.MangaContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: grey; /* Light background for the container */
+    padding: 10px; /* Padding for the container */
+    box-sizing: border-box; /* Ensures padding is included in width/height calculations */
+}
+
+.Manga .mangaSearch {
+    width: 100vw;
+    height: auto;
+    margin: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey; /* Light background for the search bar */
+    padding: 10px; /* Padding for the search bar */
+}
+
+.Manga h1 {
+    color: black;
+}
+
+.MangaContainer .MangaImage {
+    width: 50%;
+    height: auto;
+    margin: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey; /* Light background for the image container */
+    padding: 10px; /* Padding for the image container */
+}
+
+.extraInfo {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.AppManga {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 100vh;
+    height: auto;
+    width: 1200px;
+    max-width: 1200px;
+    box-sizing: border-box;
+    border-left: 2px solid black; 
+    border-right: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with 70% opacity */
+    padding: 20px;
+    border-radius: 10px; /* Optional: Add rounded corners */
+    z-index: 0;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.9);
+}

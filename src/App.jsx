@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import background from './assets/background.mp4'
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import {Manga} from './routes/Manga.jsx';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -16,6 +18,7 @@ function App() {
   const [scoreFilter, setScoreFilter] = useState(0);
   const [selectedManga, setSelectedManga] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const fetchMangaData = async () => {
@@ -107,12 +110,8 @@ function App() {
   }
 
   const handleMangaClick = (manga) => {
-    setSelectedManga({
-      title: manga.title,
-      image: manga.images?.jpg?.large_image_url || '',
-      description: manga.synopsis || 'No description available.',
-      url: manga.url || '#',
-    });
+    setSelectedManga(manga); // Optional: Keep this if needed elsewhere
+    navigate(`/manga/${manga.mal_id}`, { state: { manga } }); // Ensure the manga object is passed here
   };
 
   const handleNextPage = () => {
@@ -199,6 +198,8 @@ function App() {
   };
 
   return (
+    <Routes>
+        <Route path="/" element={
     <>
         <video autoPlay loop muted className="background-video">
           <source src={background} type="video/mp4" />
@@ -207,7 +208,7 @@ function App() {
       <div className="App">
         <div className = "mangaSearch">
           <h1>📖 Manga Search</h1>
-          <div className="MangaContainer">
+          <div className="MangaContainers">
             <button className = "mangaBut">About</button>
             <button className = "mangaBut">Search</button>
           </div>
@@ -267,17 +268,17 @@ function App() {
                   <tr key={manga.mal_id}>
                     <td>{manga.rank}</td>
                     <td>
-                    <button
-                          onClick={() => handleMangaClick(manga)}
-                          style={{
-                            background: 'none',
-                            border: 'none',
-                            color: 'white',
-                            textDecoration: 'underline',
-                            cursor: 'pointer',
-                          }}
-                        >
-                          {manga.title}
+                      <button
+                            onClick={() => handleMangaClick(manga)}
+                            style={{
+                              background: 'none',
+                              border: 'none',
+                              color: 'white',
+                              textDecoration: 'underline',
+                              cursor: 'pointer',
+                            }}
+                          >
+                            {manga.title}
                         </button>
                     </td>
                     <td>{manga.score || 'N/A'}</td>
@@ -299,6 +300,22 @@ function App() {
         </div>
       </div>
     </>
+    }/>
+    <Route path="/manga/:id" element={
+        <>
+        <div className = "AppManga">
+          <div className = "mangaSearch">
+            <h1>📖 Manga Search</h1>
+            <div className="MangaContainers">
+              <button className = "mangaBut">About</button>
+              <button className = "mangaBut" onClick={() => navigate('/')}>Search</button>
+            </div>
+          </div>
+            <Manga />
+        </div>
+        </>
+      } />
+  </Routes>
   )
 }
 
