@@ -111,12 +111,18 @@ function App() {
   };
 
   const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+    setCurrentPage((prevPage) => {
+      console.log("Next Page:", prevPage + 1);
+      return prevPage + 1;
+    });
   };
-
+  
   const handlePrevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
+      setCurrentPage((prevPage) => {
+        console.log("Previous Page:", prevPage - 1);
+        return prevPage - 1;
+      });
     }
   };
 
@@ -130,17 +136,9 @@ function App() {
         <div className = "mangaSearch">
           <h1>📖 Manga Search</h1>
           <div className="MangaContainer">
-            {selectedManga ? (
-              <>
-                <a href={selectedManga.url || '#'} target="_blank" rel="noopener noreferrer">
-                  <h2 className="title">{selectedManga.title}</h2>
-                </a>
-                <img src={selectedManga.image} alt={selectedManga.title} className = "image"/>
-                <p className = "desc">{selectedManga.description}</p>
-              </>
-            ) : (
-              <p>Select a manga to see details</p>
-            )}
+            <button className = "mangaBut">About</button>
+            <button className = "mangaBut">Search</button>
+
           </div>
           <div className = "Manga"></div>
         </div>
@@ -162,14 +160,8 @@ function App() {
             <input 
               className="searchInput" 
               value={searchInput} 
-              onChange={(e) => setSearchInput(e.target.value)} 
+              onChange={(e) => searchItems(e.target.value)} // Call searchItems directly
             />
-            <button 
-              className="searchButton" 
-              onClick={() => searchItems(searchInput)}
-            >
-              Search
-            </button>
               <select onChange={(e) => selectStatus(e.target.value)}> 
                 <option value="">Select Status </option>
                 <option value="Finished">Finished</option>

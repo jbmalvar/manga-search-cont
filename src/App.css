@@ -65,6 +65,12 @@ html, body {
   background-color: grey;
 }
 
+.mangaBut {
+  width: 90%;
+  height: 50px;
+  margin: 10px;
+}
+
 .MangaSearchContainer {
   display: flex;
   flex-direction: column;
