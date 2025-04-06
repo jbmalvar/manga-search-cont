@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import background from './assets/background.mp4'
+import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function App() {
   const [mangaList, setMangaList] = useState([]);
@@ -72,6 +76,7 @@ function App() {
   
     setFilteredResults(baseList);
   };
+
   const highestRatedManga = () => {
     const currentList = filteredResults.length > 0 ? filteredResults : mangaList;
     if (currentList.length > 0) {
@@ -126,6 +131,73 @@ function App() {
     }
   };
 
+  const graphData = {
+    labels: (filteredResults.length > 0 ? filteredResults : mangaList).map(manga => manga.title),
+    datasets: [
+      {
+        label: 'Scores',
+        data: (filteredResults.length > 0 ? filteredResults : mangaList).map(manga => manga.score || 0),
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const graphOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Manga Scores',
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          autoSkip: false,
+          maxRotation: 90,
+          minRotation: 45,
+        },
+      },
+    },
+  };
+
+  const statusCounts = {
+    Finished: mangaList.filter((manga) => manga.status === 'Finished').length,
+    Publishing: mangaList.filter((manga) => manga.status === 'Publishing').length,
+    OnHiatus: mangaList.filter((manga) => manga.status === 'On Hiatus').length,
+  };
+
+  const statusGraphData = {
+    labels: ['Finished', 'Publishing', 'On Hiatus'],
+    datasets: [
+      {
+        label: 'Manga Status',
+        data: [statusCounts.Finished, statusCounts.Publishing, statusCounts.OnHiatus],
+        backgroundColor: ['#4caf50', '#2196f3', '#ff9800'], // Colors for each status
+        borderColor: ['#388e3c', '#1976d2', '#f57c00'],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const statusGraphOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Manga Status Distribution',
+      },
+    },
+  };
+
   return (
     <>
         <video autoPlay loop muted className="background-video">
@@ -138,9 +210,7 @@ function App() {
           <div className="MangaContainer">
             <button className = "mangaBut">About</button>
             <button className = "mangaBut">Search</button>
-
           </div>
-          <div className = "Manga"></div>
         </div>
         <div className = "MangaSearchContainer">
           <div className = "Categories">
@@ -218,6 +288,14 @@ function App() {
               </tbody>
             </table>
           </div>
+            <div className="graph-container" style={{ marginTop: '20px' }}>
+              <h2>Manga Scores Graph</h2>
+              <Bar data={graphData} options={graphOptions} />
+            </div>
+            <div className="graph-container" style={{ marginTop: '20px' }}>
+              <h2>Manga Status Distribution</h2>
+              <Bar data={statusGraphData} options={statusGraphOptions} />
+            </div>
         </div>
       </div>
     </>
