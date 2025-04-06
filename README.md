@@ -4,7 +4,7 @@ Submitted by: **James Joshua**
 
 This web app: **Manga Search Continued from last project**
 
-Time spent: **6** hours spent in total
+Time spent: **4** hours spent in total
 
 ## Required Features
 
